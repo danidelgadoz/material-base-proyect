@@ -1,0 +1,78 @@
+
+<md-sidenav md-theme="FuseSideNavTheme" layout="column" class="md-sidenav-left md-whiteframe-z3" md-component-id="left" md-is-locked-open="$mdMedia('min-width: 1280px') && navState">
+    <md-toolbar md-colors="{background: 'background'}" class="md-hue-2 md-whiteframe-1dp">
+        <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+            <div class="logo" layout="row" layout-align="start center">
+                <span class="logo-image">
+                    <img src="images/angular-logo.svg">
+                </span>
+
+                <span class="logo-text" flex>Angular Material</span>
+            </div>        
+            
+            <md-button aria-label="Hide sideNav" class="md-icon-button" ng-click="navState=!navState" ng-hide="isOpenSideNav()">
+                <md-icon md-svg-src="images/svg/backburger.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-content class="sideNavContent" flex ng-include="'views/includes/dashboard-admin-menu.html'">    
+    </md-content>
+</md-sidenav>
+
+<!-- <md-content flex> -->
+<md-content id="appContent" layout="column" flex layout-fill role="main">
+    <md-toolbar md-colors="{background: 'background'}" class="md-whiteframe-2dp" style="padding: 0 0 0 16px;">
+        <div class="md-toolbar-tools" style="padding: 0px;">
+            <md-button class="md-icon-button" aria-label="Menu Button"
+                ng-hide="isLockedOpenSideNav() || isOpenSideNav()"
+                ng-click="navState==false ? navState=true : toggleLeft()">
+                <md-icon md-colors="{color: 'grey-700'}" aria-label="Menu" class="material-icons">menu</md-icon>
+            </md-button>
+
+            <span flex></span>
+
+            <md-menu-bar style="padding: 0px;">
+              <md-menu md-position-mode="left bottom">
+                <md-list-item class="user-menu" ng-click="$mdMenu.open($event)">
+                  <div class="user-image">
+                    <img ng-src="images/avatars/profile.jpg" class="md-avatar">
+                    <md-icon aria-label="Menu" class="material-icons icon-status" style="color: rgb(232, 234, 232);">check</md-icon>
+                  </div>
+                  <p class="user-name" ng-bind="user.name"></p>
+                  <md-icon aria-label="Menu" class="material-icons" style="color: rgba(0,0,0,0.54);">keyboard_arrow_down</md-icon>
+                </md-list-item>
+
+                <md-menu-content width="4">
+                  <md-menu-item>
+                    <md-button>
+                      <md-icon aria-label="Menu" class="material-icons">person</md-icon>
+                      Mi cuenta
+                    </md-button>
+                  </md-menu-item>
+                  <md-menu-item>
+                    <md-button>
+                      <md-icon aria-label="Menu" class="material-icons">announcement</md-icon>
+                      Notificaciones
+                    </md-button>
+                  </md-menu-item>
+                  <md-menu-divider></md-menu-divider>
+                  <md-menu-item>
+                    <md-button ng-click="logout()">
+                      <md-icon aria-label="salir" class="material-icons">exit_to_app</md-icon>
+                      Salir
+                    </md-button>
+                  </md-menu-item>
+                </md-menu-content>
+              </md-menu>
+            </md-menu-bar>
+        </div>
+    </md-toolbar>
+  
+      <md-content ui-view layout="column" class="ui-view-container" flex md-scroll-y>
+        <!-- <ui-view layout="column" layout-fill></ui-view> -->
+        <!-- <ui-view layout="column"></ui-view> -->
+      </md-content>
+</md-content>
+
+

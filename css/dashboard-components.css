@@ -1,0 +1,100 @@
+/*
+ *  Table of Contents:
+ *
+ *  1. md-table custom
+ *  2. ships
+ *  3. Dashboard Header
+ *  4. Dashboard Main Content
+ *  5. Animations
+*/
+
+/*
+===============================================
+            1. md-table custom
+===============================================
+*/
+
+md-toolbar.md-table-toolbar.md-default-theme:not(.md-menu-toolbar).md-default, md-toolbar.md-table-toolbar:not(.md-menu-toolbar).md-default {
+    background-image: url(../../../images/background/header-bg.png) !important;
+    background-size: cover !important;
+}
+
+md-toolbar.md-table-toolbar .md-toolbar-tools md-icon {
+    color: rgb(255,255,255);
+}
+
+table.md-table.md-row-select td.md-cell:nth-child(n+3):nth-last-child(n+2), table.md-table.md-row-select th.md-column:nth-child(n+3):nth-last-child(n+2) {
+    padding: 0 32px 0 0;
+}
+
+table.md-table th.md-column {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+md-toolbar.md-table-toolbar > div.md-toolbar-tools > md-icon{
+    margin-right: 12px;
+}
+
+md-toolbar.md-table-toolbar-size-custom {
+    min-height: 54px; 
+}
+md-toolbar.md-table-toolbar-size-custom div.size-custom{
+    max-height: 54px;
+}
+
+table.md-table thead.md-head > tr.header-size-custom {
+    height: 46px;
+}
+table.md-table tbody.md-body > tr.row-size-custom{
+    height: 38px;
+}
+
+table.md-table tbody.md-body > tr > td > div.row-status {
+    display: inline-block;
+    vertical-align: middle;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+table.md-table tbody.md-body > tr > td > div > div.row-status {
+    display: inline-block;
+    vertical-align: middle;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+/*
+===============================================
+            2. ships
+===============================================
+*/
+span.ship {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+
+/*
+===============================================
+            3. md-progress
+===============================================
+*/
+#plz_wait md-progress-circular.md-default-theme path, #plz_wait md-progress-circular path {
+    stroke: white;
+}
+#plz_wait div.loading-text {
+    color: white;
+    margin-top: 8px;
+    font-weight: 500;
+}

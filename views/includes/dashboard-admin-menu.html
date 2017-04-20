@@ -1,0 +1,87 @@
+
+<md-tabs md-dynamic-height="" md-border-bottom="">
+    <md-tab label="APLICACION">
+        <md-content>
+            <md-list ng-cloak="" class="listdemoListControls">
+                <md-list-item ui-sref="dashboard.inicio" ui-sref-active="active" ng-click="null">
+                    <md-icon aria-label="Menu" class="material-icons">dashboard</md-icon>
+                    <p>Dashboard</p>
+                </md-list-item>
+
+                <md-divider></md-divider>
+                <md-subheader class="md-no-sticky">OPERACIONES</md-subheader>
+
+                    <md-list-item ng-click="null">
+                        <md-icon>shopping_cart</md-icon>
+                        <p>Solicitar pedido</p>
+                    </md-list-item>
+
+                    <md-list-item ng-click="null">
+                        <md-icon>description</md-icon>
+                        <p>Historial de pedidos</p>
+                    </md-list-item>
+
+                <md-divider></md-divider>
+                <md-subheader class="md-no-sticky">REPORTES</md-subheader>
+
+                <md-list-item ng-click="subMenu.collapse('indicadores')" ng-style="subMenu.getItemStyle('indicadores')">
+                    <md-icon>insert_chart</md-icon>
+                    <p>Indicadores</p>
+                    <md-icon aria-label="Menu" class="material-icons arrow">{{ subMenu.getIconCollapse('indicadores') }}</md-icon>
+                </md-list-item>
+                <div class="md-sub-menu md-sub-menu-3-item" ng-show="subMenuList['indicadores'].collapse">
+                    <md-list-item ui-sref="dashboard.indicador_indicador1" ui-sref-active="active" ng-click="null">
+                      <p>Indicador 1</p>
+                    </md-list-item>
+                    
+                    <md-list-item ui-sref="dashboard.indicador_indicador2" ui-sref-active="active" ng-click="null">
+                      <p>Indicador 2</p>
+                    </md-list-item>
+                    
+                    <md-list-item ui-sref="dashboard.indicador_indicador3" ui-sref-active="active" ng-click="null">
+                      <p>Indicador 3</p>
+                    </md-list-item>
+                </div>
+
+              <md-divider></md-divider>
+          </md-list>
+        </md-content>
+    </md-tab>
+
+    <md-tab label="MANTENIMIENTO">
+        <md-content>
+            <md-list ng-cloak="" class="listdemoListControls">
+                <md-subheader class="md-no-sticky">ADMINISTRACIÓN DE USUARIOS</md-subheader>
+
+                <md-list-item ng-click="subMenu.collapse('usuarios')" ng-style="subMenu.getItemStyle('usuarios')">
+                  <md-icon>supervisor_account</md-icon>
+                  <p>Usuarios</p>
+                  <md-icon aria-label="Menu" class="material-icons arrow">{{ subMenu.getIconCollapse('usuarios') }}</md-icon>
+                </md-list-item>
+                <div class="md-sub-menu md-sub-menu-2-item" ng-show="subMenuList['usuarios'].collapse">
+                    <md-list-item ng-click="null">          
+                        <p>Administrador</p>
+                    </md-list-item>
+                    <md-list-item ng-click="null">          
+                        <p>Cliente</p>
+                    </md-list-item>
+                </div>
+
+                <md-divider></md-divider>
+                <md-subheader class="md-no-sticky">MANTENIMIENTOS</md-subheader>
+
+                <md-list-item ui-sref="dashboard.cliente" ui-sref-active="active" ng-click="null">          
+                    <md-icon>assignment_ind</md-icon>
+                    <p>Clientes</p>
+                </md-list-item>
+
+                <md-list-item ng-click="null">
+                    <md-icon aria-label="Menu" class="material-icons">shopping_cart</md-icon>
+                    <p>Productos</p>
+                </md-list-item>
+
+              <md-divider></md-divider>
+            </md-list>
+        </md-content>
+    </md-tab>
+</md-tabs>

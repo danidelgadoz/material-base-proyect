@@ -1,0 +1,70 @@
+<div flex="100" layout="column">
+	<md-toolbar class="md-table-toolbar md-default" md-colors="{background: 'primary'}">
+        <div class="md-toolbar-tools">
+	       <md-icon>assignment_ind</md-icon>
+           <span>Clientes</span>
+
+	       <div flex></div>
+
+    	    <md-button class="md-icon-button" ng-click="create($event)">
+    	    	<md-tooltip md-direction="bottom">Agregar cliente </md-tooltip>
+    	    	<md-icon>person_add</md-icon>
+    	    </md-button>
+    	    <md-button class="md-icon-button" ng-click="list()">
+    	    	<md-tooltip md-direction="bottom">Actualizar tabla</md-tooltip>
+    	      	<md-icon>refresh</md-icon>
+    	    </md-button>
+        </div>
+	</md-toolbar>
+
+	<md-toolbar class="md-table-toolbar md-accent cover-father-element" ng-if="options.rowSelection && selected.length" style="margin-top: -64px;">
+        <div class="md-toolbar-tools">
+    	    <span>{{selected.length}} {{selected.length > 1 ? 'clientes seleccionados' : 'cliente seleccionado'}} </span>
+
+    	    <div flex></div>
+
+    	    <md-button class="md-icon-button" ng-click="deleteMultiple(ev)">
+    	    	<md-tooltip md-direction="bottom">Eliminar {{selected.length > 1 ? 'clientes' : 'cliente'}}</md-tooltip>
+    	    	<md-icon>delete</md-icon>
+    	    </md-button>
+        </div>	  
+	</md-toolbar>
+
+	<md-table-container layout-padding>
+        <table class="md-whiteframe-1dp" md-table md-row-select="options.rowSelection" multiple="{{options.multiSelect}}" ng-model="selected" md-progress="promise">
+    	    <thead ng-if="!options.decapitate" md-colors="{background: 'primary'}" md-head md-order="query.order" md-on-reorder="logOrder"><!--md-colors="{background: 'blue-500'}"-->
+                <tr md-row>
+                    <th md-column md-order-by="codigo">Codigo</th>
+                    <th md-column md-order-by="razon_social">Cliente</th>
+                    <th md-column md-order-by="documento">Documento</th>
+                    <th md-column md-order-by="numero_documento">N° Documento</th>
+                    <th md-column md-order-by="email">Email</th>
+                    <th md-column md-order-by="tipo">Tipo</th>
+                    <th md-column style="text-align: center">Acciones</th>
+    	       </tr>
+    	    </thead>
+    	    <tbody md-body>
+                <tr md-row md-select="dessert" md-on-select="logItem" md-auto-select="options.autoSelect" ng-repeat="dessert in desserts.data | filter: filter.search | orderBy: query.order">
+                    <td md-cell>{{ dessert.codigo }}</td>
+                    <td md-cell>{{ dessert.razon_social }}</td>
+                    <td md-cell>{{ dessert.documento }}</td>
+                    <td md-cell>{{ dessert.numero_documento }}</td>
+                    <td md-cell>{{ dessert.email }}</td>
+                    <td md-cell><span class="ship" ng-style="dessert.tipo=='PERSONA' ? {'background-color': 'teal'} : {'background-color': 'orange'} "> {{ dessert.tipo }} </span></td>
+                    <td md-cell layout="row" layout-align="center">
+                        <md-button class="md-icon-button" ng-click="show($event, dessert)">
+                          <md-tooltip md-direction="bottom">Editar cliente</md-tooltip>
+                          <md-icon>edit</md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button" ng-click="delete($event, dessert)">
+                            <md-tooltip md-direction="bottom">Eliminar cliente</md-tooltip>
+                            <md-icon>delete</md-icon>
+                        </md-button>
+                    </td>
+                </tr>
+    	    </tbody>
+        </table>
+	</md-table-container>
+
+	<md-table-pagination md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}" md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{desserts.total}}" md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
+</div>

@@ -1,0 +1,170 @@
+<!-- DIALOG -->
+<md-dialog aria-label="Dialog Example" flex-md="90" flex-lg="80 " >
+    <!-- DIALOG TOOLBAR -->
+    <md-toolbar class="md-primary">
+        <div class="md-toolbar-tools" layout-align="space-between center">
+            <span class="title">Datos de cliente</span>
+            <md-button class="md-icon-button" aria-label="Close dialog" ng-click="closeDialog()">
+                <!-- <md-icon md-font-icon="icon-close"></md-icon> -->
+                <md-icon aria-label="Menu" class="material-icons">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <!-- / DIALOG TOOLBAR -->
+    <form name="userForm" ng-submit="cliente.id ? (userForm.$valid && update()) : (userForm.$valid && store())">
+      <!-- DIALOG CONTENT -->
+      <md-dialog-content layout-padding>
+            <div layout="row" layout-wrap>
+                <md-input-container flex="25">
+                  <label>Tipo cliente</label>
+                  <md-select name="tipo" ng-model="cliente.tipo" ng-disabled="cliente.id">
+                    <md-option value="PERSONA">PERSONA</md-option>
+                    <md-option value="EMPRESA">EMPRESA</md-option>
+                  </md-select>
+                  <div class="errors" ng-messages="userForm.tipo.$error">
+                    <div ng-message="required">Tipo cliente es requerido.</div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex="25">
+                  <label>codigo</label>
+                  <input required name="ruc" ng-model="cliente.codigo"/>
+
+                  <div ng-messages="userForm.ruc.$error">
+                    <div ng-message="required">Codigo es requerido.</div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex="25">
+                  <label>{{ cliente.tipo=='EMPRESA' ? 'Razon social' : 'Nombres y Apellidos' }}</label>
+                  <input required name="razon_social" ng-model="cliente.razon_social" />
+
+                  <div ng-messages="userForm.razon_social.$error">
+                    <div ng-message="required">{{ cliente.tipo=='EMPRESA' ? 'Razon social' : 'Nombres y Apellidos' }} es requerido.</div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex="25">
+                  <label>{{ cliente.tipo=='PERSONA' ? 'DNI' : 'RUC' }}</label>
+                  <input required name="ruc" ng-model="cliente.numero_documento" ng-pattern="docPattern"/>
+
+                  <div ng-messages="userForm.ruc.$error">
+                    <div ng-message="required">{{ cliente.tipo=='PERSONA' ? 'DNI' : 'RUC' }} es requerido.</div>
+                    <div ng-message="pattern">{{ cliente.tipo=='PERSONA' ? 'DNI' : 'RUC' }} invalido.</div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex="25">
+                  <label>Rubro</label>
+                  <input required name="rubro" ng-model="cliente.rubro" />
+
+                  <div ng-messages="userForm.rubro.$error">
+                    <div ng-message="required">Rubro es requerido.</div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex="25" ng-if="cliente.tipo=='EMPRESA'">
+                  <label>Contacto</label>
+                  <input required name="persona_contacto" ng-model="cliente.persona_contacto"/>
+
+                  <div ng-messages="userForm.persona_contacto.$error">
+                    <div ng-message="required">Contacto es requerido.</div>
+                  </div>
+                </md-input-container>            
+
+                <md-input-container flex="25">
+                  <label>Teléfono 1</label>
+                  <input required name="telefono1" ng-model="cliente.telefono1" ng-pattern="/^[0-9]{7,}$/"/>
+
+                  <div ng-messages="userForm.telefono1.$error">
+                    <div ng-message="required">Teléfono es requerido.</div>
+                    <div ng-message="pattern">Ingresar Teléfono valido.</div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex="25">
+                  <label>Teléfono 2</label>
+                  <input required name="telefono2" ng-model="cliente.telefono2" ng-pattern="/^[0-9]{7,}$/"/>
+
+                  <div ng-messages="userForm.telefono2.$error">
+                    <div ng-message="required">Teléfono es requerido.</div>
+                    <div ng-message="pattern">Ingresar Teléfono valido.</div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex="25">
+                  <label>Email</label>
+                  <input type="email" required name="email" ng-model="cliente.email" ng-pattern="/^.+@.+\..+$/"/>
+
+                  <div ng-messages="userForm.email.$error">
+                    <div ng-message="required">Email de Empresa es requerido.</div>
+                    <div ng-message="pattern">Ingresar email valido.</div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex="25">
+                  <label>Pagina Web</label>
+                  <input required name="pagina_web" ng-model="cliente.pagina_web" />
+
+                  <div ng-messages="userForm.pagina_web.$error">
+                    <div ng-message="required">Pagina Web es requerida.</div>
+                  </div>
+                </md-input-container>
+                
+                <div flex="100"></div>
+
+                <md-input-container flex="25">
+                  <label>Dirección</label>
+                  <input required name="direccion" ng-model="cliente.direccion" />
+
+                  <div ng-messages="userForm.direccion.$error">
+                    <div ng-message="required">Dirección es requerida.</div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex="25">
+                  <label>Departamento</label>
+                  <md-select name="departamento" ng-model="ubigeo.codigo.departamento" ng-change="ubigeo.distritos()">
+                    <md-option ng-value="dep.idubigeo.slice(0,2)" ng-bind="dep.CodDpto" ng-repeat="dep in ubigeo.departamentos()"></md-option>
+                  </md-select>
+                  <div class="errors" ng-messages="userForm.departamento.$error">
+                    <div ng-message="required">Departamento es requerido.</div>
+                  </div>
+                </md-input-container>            
+
+                <md-input-container flex="25">
+                  <label>Provincia</label>
+                  <md-select name="provincia" ng-model="ubigeo.codigo.provincia" ng-change="ubigeo.distritos()">
+                    <md-option ng-value="pro.idubigeo.slice(2,4)" ng-bind="pro.CodProv" ng-repeat="pro in ubigeo.provincias()"></md-option>
+                  </md-select>
+                  <div class="errors" ng-messages="userForm.provincia.$error">
+                    <div ng-message="required">Provincia es requerida.</div>
+                  </div>
+                </md-input-container>
+
+                <md-input-container flex="25">
+                  <label>Distrito</label>
+                  <md-select name="distrito" ng-model="ubigeo.codigo.distrito" ng-change="ubigeo.store()">
+                    <md-option ng-value="dis.idubigeo.slice(4,6)" ng-bind="dis.CodDist" ng-repeat="dis in ubigeo.distritos()"></md-option>
+                  </md-select>
+                  <div class="errors" ng-messages="userForm.distrito.$error">
+                    <div ng-message="required">Distrito es requerido.</div>
+                  </div>
+                </md-input-container>                       
+
+                <md-input-container flex="100">
+                  <label>Observacion</label>
+                  <textarea required name="observacion" ng-model="cliente.observacion" md-maxlength="150" rows="2"/></textarea>
+                </md-input-container>
+            </div>
+      </md-dialog-content>
+      <!-- / DIALOG CONTENT -->
+
+      <!-- DIALOG ACTIONS -->
+      <md-dialog-actions layout="row" layout-align="end center">        
+        <md-button aria-label="action" type="submit" class="md-raised md-primary"> {{ cliente.id ? 'Modificar' : 'Guardar' }} </md-button>      
+      </md-dialog-actions>
+      <!-- / DIALOG ACTIONS -->
+    </form>
+</md-dialog>
+<!-- / DIALOG -->

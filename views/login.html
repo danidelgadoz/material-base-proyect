@@ -1,0 +1,49 @@
+<div layout="row" flex>
+    <div class="login-intro" layout="column" flex-xs="100" flex-md="55" flex-gt-md="70" flex="75"  hide show-gt-sm>
+        <div class="intro-container">
+            <img src="images/angular-logo.svg">            
+            <h2>Angular Material Teamplate</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+    
+    <form name="loginForm" class="login-form-wrapper" flex-xs="100" flex-sm="100" flex-md="45" flex-gt-md="30" flex="25">
+        <div class="box-logo" hide show-sm show-xs>NG</div>
+        
+        <h2>Ingrese a su cuenta</h2>
+
+        <div layout="column">
+            <md-input-container flex="100">
+                <label>Correo</label>
+                <input  name="email" ng-model="user.email" ng-pattern="/^.+@.+\..+$/" required>
+                <div ng-messages="loginForm.email.$error">
+                  <div ng-message="required">Se requiere campo de correo electrónico</div>
+                  <div ng-message="pattern">El email debe ser una dirección de correo electrónico válida</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container flex="100">
+                <label>Clave</label>
+                <input type="password" name="password" ng-model="user.password" required>
+                <div ng-messages="loginForm.password.$error">
+                    <div ng-message="required">Se requiere campo de contraseña</div>
+                </div>
+            </md-input-container>
+
+            <md-button type="submit" class="md-primary md-raised md-hue-2 btn-login" 
+                ng-disabled="logindisabled"
+                ng-click="login()">
+                INICIAR SESIÓN
+            </md-button>
+
+            <div id="messageLogin" role="alert" ng-style="loginAlert.style">                    
+                <span ng-bind="loginAlert.message"></span>
+            </div>
+        </div>
+    </form>
+</div>

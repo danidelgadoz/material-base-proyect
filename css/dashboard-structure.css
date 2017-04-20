@@ -1,0 +1,339 @@
+/*
+ *  Table of Contents:
+ *
+ *  1. Login
+ *  2. Dashboard Menu
+ *  3. Dashboard Header
+ *  4. Dashboard Main Content
+ *  5. Animations
+*/
+
+/*
+===============================================
+            1. Login
+===============================================
+*/
+div.login-intro {
+    height: 100%;
+    overflow: hidden;
+    background: url(../images/background/march.jpg) no-repeat;
+    background-size: cover;
+}
+
+div.login-intro > div.intro-container{
+    margin: 8% 7%;
+    color: white;
+}
+
+div.login-intro > div.intro-container > img{
+    height: 192px;
+    width: 192px;
+}
+
+form.login-form-wrapper{
+    padding: 10% 48px 40px 40px;
+}
+
+form.login-form-wrapper > h2{
+    text-align: center;
+    font-weight: 400;
+    color: #212121;    
+}
+
+form.login-form-wrapper > div.box-logo{
+    background-color: #039be5;
+    width: 130px;
+    height: 80px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    font-size: 58px;
+    font-weight: 600;
+    padding: 22px 4px 10px 4px;
+    margin-bottom: 60px;
+}
+
+form.login-form-wrapper > div > .btn-login{
+    width: 100%;
+    margin:16px auto;
+    margin-top: 0px;
+    display: block;
+}
+
+@media screen and (max-width: 600px){
+    form.login-form-wrapper {
+        padding: 10% 30px 40px 20px;
+    }
+}
+
+/*
+===============================================
+            2. Dashboard Menu
+===============================================
+*/
+md-sidenav.md-sidenav-left {
+    width: 280px;
+}
+md-sidenav.md-sidenav-left > md-toolbar > div.md-toolbar-tools {
+    background-color: rgba(255,255,255,.05);
+}
+md-sidenav.md-sidenav-left > md-toolbar > div.md-toolbar-tools md-icon{
+    height: 20px;
+    width: 20px;
+    min-height: 20px;
+    min-width: 20px;
+}
+
+/* logo */
+md-sidenav.md-sidenav-left > md-toolbar div.logo .logo-image {
+    display: block;
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #FFF;
+    border-radius: 2px;
+}
+md-sidenav.md-sidenav-left > md-toolbar div.logo .logo-image img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+    border: none;
+}
+md-sidenav.md-sidenav-left > md-toolbar div.logo .logo-text {
+    color: #FFF;
+    margin-left: 16px;
+    font-size: 16px;
+}
+
+/* menu-tabs */
+md-sidenav.md-sidenav-left > md-content > md-tabs md-tab-item.md-tab{    
+    font-size: 12px;
+    padding: 12px 16px;
+}
+
+/* subheader */
+md-sidenav.md-sidenav-left > md-content md-list div.md-subheader > div.md-subheader-inner > div.md-subheader-content{
+    color: rgba(255,255,255,.3);
+    font-size: 12px;
+}
+
+/* item */
+md-sidenav.md-sidenav-left > md-content md-list > md-list-item div.md-list-item-inner > p,
+md-sidenav.md-sidenav-left > md-content md-list > div.md-sub-menu > md-list-item div.md-list-item-inner > p {
+    color: rgba(255,255,255,.7);
+    font-size: 13px;
+}
+md-sidenav.md-sidenav-left > md-content md-list > md-list-item div.md-list-item-inner > md-icon,
+md-sidenav.md-sidenav-left > md-content md-list > div.md-sub-menu > md-list-item div.md-list-item-inner > md-icon {
+    font-size: 16px!important;
+    width: 16px!important;
+    height: 16px!important;
+    min-width: 16px!important;
+    min-height: 16px!important;
+    line-height: 16px!important;
+}
+md-list-item .md-list-item-inner>md-icon:first-child:not(.md-avatar-icon), md-list-item>md-icon:first-child:not(.md-avatar-icon) {
+    margin-right: 24px;
+}
+
+/* submenus */
+md-sidenav.md-sidenav-left > md-content md-list > div.md-sub-menu {
+    overflow: hidden;
+    background-color: rgba(0,0,0,.12);
+    transition: all linear 0.4s;
+}
+md-sidenav.md-sidenav-left > md-content md-list div.md-sub-menu-1-item {    
+    height: 48px;
+}
+md-sidenav.md-sidenav-left > md-content md-list div.md-sub-menu-2-item {    
+    height: 96px;
+}
+md-sidenav.md-sidenav-left > md-content md-list div.md-sub-menu-3-item {    
+    height: 144px;
+}
+md-sidenav.md-sidenav-left > md-content md-list div.md-sub-menu-4-item {    
+    height: 192px;
+}
+md-sidenav.md-sidenav-left > md-content md-list > div.md-sub-menu div.md-list-item-inner{
+  padding-left: 48px;/*32*/
+}
+md-sidenav.md-sidenav-left > md-content md-list > div.ng-hide {  
+    height: 0;
+}
+
+/* arrow (minimize, maximize) */
+md-sidenav.md-sidenav-left > md-content md-list > md-list-item md-icon.arrow{
+    font-size: 16px!important;
+    width: 16px!important;
+    height: 16px!important;
+    min-width: 16px!important;
+    min-height: 16px!important;
+    line-height: 16px!important;
+}
+
+/* selected item */
+md-sidenav.md-sidenav-left > md-content md-list md-list-item.active{ 
+    background-color: rgb(3,155,229);
+}
+md-sidenav.md-sidenav-left > md-content md-list md-list-item.active md-icon.md-default-theme,
+md-sidenav.md-sidenav-left > md-content md-list md-list-item.active div.md-list-item-inner > p,
+md-sidenav.md-sidenav-left > md-content md-list > div.md-sub-menu > md-list-item.active div.md-list-item-inner > p {
+    color: #FFF;
+}
+
+/* sidenav scroll */
+md-content.sideNavContent::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: transparent;
+}
+md-content.sideNavContent::-webkit-scrollbar{
+    width: 8px;
+    background-color: transparent;
+}
+md-content.sideNavContent::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+md-content.sideNavContent::-webkit-scrollbar-thumb:hover{
+    background-color: rgba(111, 111, 111, 1);
+}
+
+
+/*
+===============================================
+            3. Dashboard Header
+===============================================
+*/
+md-toolbar md-menu-bar md-menu md-list-item.user-menu div.user-image {
+    position: relative;
+}
+md-toolbar md-menu-bar md-menu md-list-item.user-menu div.user-image > md-icon.icon-status{    
+    background-color: rgb(76, 175, 80);
+    border-radius: 25px;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    font-size: 13px!important;
+    width: 13px!important;
+    height: 13px!important;
+    min-width: 13px!important;
+    min-height: 13px!important;
+    line-height: 13px!important;
+}
+md-toolbar md-menu-bar md-menu md-list-item.user-menu p.user-name {
+    font-weight: 500;
+    font-size: 14px;
+}
+md-toolbar md-menu-bar md-menu md-list-item.user-menu md-icon {
+    margin-left: 8px;
+    font-size: 16px!important;
+    width: 16px!important;
+    height: 16px!important;
+    min-width: 16px!important;
+    min-height: 16px!important;
+    line-height: 16px!important;    
+}
+
+
+/*
+===============================================
+            4. Dashboard Main Content
+===============================================
+*/
+
+/*hides de parent-container's scroll (header and ui-view-container)*/
+md-content#appContent::-webkit-scrollbar{
+    width: 0;
+}
+
+/* ui-view-container scroll*/
+md-content.ui-view-container::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px transparent;
+    border-radius: 10px;
+    background-color: transparent;
+}
+md-content.ui-view-container::-webkit-scrollbar{
+    width: 10px;
+    background-color: transparent;
+}
+md-content.ui-view-container::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px transparent;
+    background-color: #E0E0E0;
+}
+md-content.ui-view-container::-webkit-scrollbar-thumb:hover{
+    background-color: #BDBDBD;
+}
+
+
+/*
+===============================================
+            5. Animations
+===============================================
+*/
+
+/* leaving animations ----------------------------------------- */
+/* rotate and fall */
+@keyframes rotateFall {
+    0%      { transform: rotateZ(0deg); }
+    20%     { transform: rotateZ(10deg); animation-timing-function: ease-out; }
+    40%     { transform: rotateZ(17deg); }
+    60%     { transform: rotateZ(16deg); }
+    100%    { transform: translateY(100%) rotateZ(17deg); }
+}
+
+/* slide in from the bottom */
+@keyframes slideOutLeft {
+    to      { transform: translateX(-100%); }
+}
+
+@keyframes slideOutUp {
+    to      { transform: translateY(-100%); }
+}
+/* rotate out newspaper */
+@keyframes rotateOutNewspaper {
+    to      { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+
+/* entering animations --------------------------------------- */
+/* scale up */
+@keyframes scaleUp {
+    from    { opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from    { transform:translateX(-100%); }
+    to      { transform: translateX(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideInUp {
+    from    { transform:translateY(25%); }
+    to      { transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+    from    { transform:translateY(-100%); }
+    to      { transform: translateY(0); }
+}
+
+/* Login and dashboard IN */
+.app-body.ng-enter { animation: slideInRight 0.5s both ease-in; z-index: 50; }
+/*.app-body.ng-leave { animation: slideOutLeft 0.5s both ease-in; z-index: 9999; }*/
+
+/* Dasboard main content IN */
+.ui-view-container.ng-enter { opacity: 0.5; animation: slideInUp 0.5s both ease-in; z-index: 50; }
+
+/* Especific elements IN */
+.ng-enter.animate-here{ animation: scaleUp 1s both ease-in; z-index: 500; }
+
+/* Especific elements IN/OUT */
+.ng-enter.cover-father-element { animation: slideInDown 0.5s both ease-in; z-index: 50; }
+.ng-leave.cover-father-element { animation: slideOutUp 0.5s both ease-in; z-index: 50; }
