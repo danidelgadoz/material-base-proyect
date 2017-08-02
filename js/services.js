@@ -48,13 +48,11 @@ app.service('myAlertServ', ['$mdDialog', function($mdDialog){
 
 app.service('LoadBackdrop', ['$mdDialog', '$rootScope', function ($mdDialog,  $rootScope){      
     return {
-        hideWait: function () {
-            setTimeout(function(){
-               $rootScope.$emit("hide_wait"); 
-            },5);
+        hideWait: function () {            
+               $rootScope.$emit("hide_wait");            
         },
         showWait: function (_loadingMessage, _ngElement) {
-            var loadingMessage = _loadingMessage ? _loadingMessage : "Esperando ...";
+            var loadingMessage = _loadingMessage ? _loadingMessage : "";
             var ngElement = _ngElement ? _ngElement : document.querySelector('#appContent');
 
             $mdDialog.show({
